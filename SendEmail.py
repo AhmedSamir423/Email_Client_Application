@@ -47,7 +47,7 @@ if __name__ == "__main__":
     sender = "ahmedsamirelboridy@gmail.com"  # Replace with your Gmail
     password = "wdgc ldat qzki amst"   # Replace with your generated App Password
     recipient = "samarasamir4234@gmail.com"  # Replace with recipient email
-    subject = "Test Email"
-    body = "This is a test email sent from my Python email client!"
+    subject = "IAMMUSIC"
+    body = "OPM BABI"
 
     send_email(sender, password, recipient, subject, body)
