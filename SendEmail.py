@@ -3,9 +3,9 @@ import socket
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def send_email(sender_email, sender_password, recipient_email, subject, body):
+def send_email(sender_email, sender_password, recipient_email, subject, body, output_text):
     smtp_server = "smtp.gmail.com"
-    smtp_port = 587  # Use 465 if using SMTP_SSL
+    smtp_port = 587
 
     msg = MIMEMultipart()
     msg['From'] = sender_email
@@ -15,39 +15,39 @@ def send_email(sender_email, sender_password, recipient_email, subject, body):
 
     server = None
     try:
-        print(f"Resolving hostname: {smtp_server}")
+        output_text.delete(1.0, 'end')  # Clear previous output
+        output_text.insert('end', f"Resolving hostname: {smtp_server}\n")
         ip_address = socket.gethostbyname(smtp_server)
-        print(f"Resolved {smtp_server} to IP: {ip_address}")
+        output_text.insert('end', f"Resolved {smtp_server} to IP: {ip_address}\n")
 
-        print(f"Connecting to {smtp_server}:{smtp_port}")
+        output_text.insert('end', f"Connecting to {smtp_server}:{smtp_port}\n")
         server = smtplib.SMTP(smtp_server, smtp_port)
-        server.starttls()  # Upgrade to secure connection
-        print("Connected to SMTP server successfully.")
+        server.starttls()
+        output_text.insert('end', "Connected to SMTP server successfully.\n")
 
         server.login(sender_email, sender_password)
-        print("Logged in successfully.")
+        output_text.insert('end', "Logged in successfully.\n")
 
         server.send_message(msg)
-        print(f"Email sent successfully to {recipient_email}")
+        output_text.insert('end', f"Email sent successfully to {recipient_email}\n")
 
     except socket.gaierror as e:
-        print(f"DNS resolution failed for {smtp_server}: {str(e)}")
+        output_text.insert('end', f"DNS resolution failed for {smtp_server}: {str(e)}\n")
     except smtplib.SMTPAuthenticationError:
-        print("Authentication failed! Make sure you enabled 'Less Secure Apps' or used an App Password.")
+        output_text.insert('end', "Authentication failed! Check your credentials.\n")
     except Exception as e:
-        print(f"Failed to send email: {str(e)}")
+        output_text.insert('end', f"Failed to send email: {str(e)}\n")
 
     finally:
         if server is not None:
             server.quit()
-            print("Connection closed.")
+            output_text.insert('end', "Connection closed.\n")
 
-# Test the function
+# Test (optional, can comment out for App.py)
 if __name__ == "__main__":
-    sender = "ahmedsamirelboridy@gmail.com"  # Replace with your Gmail
-    password = "wdgc ldat qzki amst"   # Replace with your generated App Password
-    recipient = "samarasamir4234@gmail.com"  # Replace with recipient email
-    subject = "IAMMUSIC"
-    body = "OPM BABI"
-
-    send_email(sender, password, recipient, subject, body)
+    sender = "ahmedsamirelboridy@gmail.com"
+    password = "wdgc ldat qzki amst"
+    recipient = "samarasamir4234@gmail.com"
+    subject = "Test Email"
+    body = "This is a test email sent from my Python email client!"
+    # For standalone testing, you'd need a dummy output_text; skip for GUI
