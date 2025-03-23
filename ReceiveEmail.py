@@ -66,6 +66,5 @@ def receive_email(email_user, email_pass, output_text):
 
 # Test (optional, can comment out for App.py)
 if __name__ == "__main__":
-    email_user = "ahmedsamirelboridy@gmail.com"
-    email_pass = "wdgc ldat qzki amst"
-    # For standalone testing, you'd need a dummy output_text; skip for GUI
+    email_user = "samarasamir4234@gmail.com"
+    email_pass = "bxnq afdw ywfo uhon"
