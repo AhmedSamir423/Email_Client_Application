@@ -43,11 +43,11 @@ def send_email(sender_email, sender_password, recipient_email, subject, body, ou
             server.quit()
             output_text.insert('end', "Connection closed.\n")
 
-# Test (optional, can comment out for App.py)
+
 if __name__ == "__main__":
     sender = "ahmedsamirelboridy@gmail.com"
     password = "wdgc ldat qzki amst"
     recipient = "samarasamir4234@gmail.com"
     subject = "Test Email"
     body = "This is a test email sent from my Python email client!"
-    # For standalone testing, you'd need a dummy output_text; skip for GUI
+    

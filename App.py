@@ -118,12 +118,12 @@ def create_receive_window():
     ttk.Label(input_frame, text="Email Address:").grid(row=0, column=0, sticky="w", pady=5)
     email_entry = ttk.Entry(input_frame, width=30)
     email_entry.grid(row=0, column=1, padx=5)
-    email_entry.insert(0, "ahmedsamirelboridy@gmail.com")
+    email_entry.insert(0, "samarasamir4234@gmail.com")
 
     ttk.Label(input_frame, text="App Password:").grid(row=1, column=0, sticky="w", pady=5)
     password_entry = ttk.Entry(input_frame, width=30, show="*")
     password_entry.grid(row=1, column=1, padx=5)
-    password_entry.insert(0, "wdgc ldat qzki amst")
+    password_entry.insert(0, "bxnq afdw ywfo uhon")
 
     # Button Frame (Moved up for better flow)
     button_frame = ttk.Frame(root, padding=10)

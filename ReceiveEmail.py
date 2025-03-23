@@ -64,7 +64,6 @@ def receive_email(email_user, email_pass, output_text):
             mail.logout()
             output_text.insert('end', "Logged out from IMAP server.\n")
 
-# Test (optional, can comment out for App.py)
 if __name__ == "__main__":
     email_user = "samarasamir4234@gmail.com"
     email_pass = "bxnq afdw ywfo uhon"
